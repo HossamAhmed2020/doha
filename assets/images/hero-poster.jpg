@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0F172A"/>
+  <circle cx="960" cy="540" r="400" fill="#D4AF37" opacity="0.05"/>
+  <circle cx="960" cy="540" r="300" fill="#D4AF37" opacity="0.08"/>
+  <text x="960" y="500" font-family="Poppins, sans-serif" font-size="64" fill="#D4AF37" text-anchor="middle" font-weight="700">Al Doha</text>
+  <text x="960" y="580" font-family="Poppins, sans-serif" font-size="24" fill="#94A3B8" text-anchor="middle">For Import &amp; Export</text>
+</svg>

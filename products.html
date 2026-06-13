@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Agricultural Harvest | Al Doha For Import & Export</title>
+    <meta name="description" content="Browse our catalog of premium Egyptian agricultural exports - Herbs, Spices, Seeds, Legumes, and Grains. Quality assured and sustainably sourced.">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="navbar-brand__icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <div class="navbar-brand__text">
+                    <span class="navbar-brand__title">Al Doha</span>
+                    <span class="navbar-brand__subtitle">For Import & Export</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="export-markets.html">Export Markets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications.html">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="rfq.html" class="btn btn-gold btn-sm">
+                            <i class="fas fa-file-invoice me-2"></i>Request Quote
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header__overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Products</li>
+                        </ol>
+                    </nav>
+                    <h1 class="page-header__title">Premium <span class="text-gold">Agricultural Harvest</span></h1>
+                    <p class="page-header__text">Explore our finest selection of Egyptian herbs, spices, seeds, and legumes, meticulously processed for global export quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section section--light products-section" id="products">
+        <div class="container">
+            <!-- Filters Toolbar -->
+            <div class="products-toolbar animate-on-scroll">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-4">
+                        <div class="search-box">
+                            <i class="fas fa-search search-box__icon"></i>
+                            <input type="text" class="search-box__input" id="productSearch" placeholder="Search products (e.g. Basil, Cumin...)" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="filters-wrapper">
+                            <div class="filter-group">
+                                <label class="filter-group__label">Category</label>
+                                <select class="filter-group__select" id="categoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="herbs">Herbs</option>
+                                    <option value="spices">Spices</option>
+                                    <option value="seeds">Seeds</option>
+                                    <option value="legumes">Legumes</option>
+                                    <option value="grains">Grains</option>
+                                    <option value="oils">Natural Oils</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-group__label">Sort By</label>
+                                <select class="filter-group__select" id="sortFilter">
+                                    <option value="featured">Featured</option>
+                                    <option value="newest">Newest Harvest</option>
+                                    <option value="name-asc">Name A-Z</option>
+                                    <option value="name-desc">Name Z-A</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-outline-gold btn-sm" id="clearFilters"><i class="fas fa-times me-1"></i>Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-toolbar__results"><span id="resultsCount">Showing 12 Premium Products</span></div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4" id="productsGrid">
+                <!-- Product 1 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-1.jpg" alt="Premium Egyptian Basil" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=1" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="1" data-product-name="Premium Egyptian Basil"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                            <span class="product-card__badge">Aromatic</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Herbs</span>
+                            <h3 class="product-card__title">Premium Egyptian Basil</h3>
+                            <p class="product-card__description">High-oil content, bright green dried basil leaves with intense aroma.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>Crushed / Whole</span>
+                                <span class="product-card__moq">MOQ: 1 Ton</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="spices">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-2.jpg" alt="Premium Cumin Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=2" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="2" data-product-name="Premium Cumin Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Spices</span>
+                            <h3 class="product-card__title">Premium Cumin Seeds</h3>
+                            <p class="product-card__description">Egyptian Cumin, 99% purity, sun-dried and machine cleaned.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>High Purity</span>
+                                <span class="product-card__moq">MOQ: 5 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-3.jpg" alt="Premium Caraway Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=3" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="3" data-product-name="Premium Caraway Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                            <span class="product-card__badge product-card__badge--new">New Harvest</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Seeds</span>
+                            <h3 class="product-card__title">Premium Caraway Seeds</h3>
+                            <p class="product-card__description">Finest Egyptian Caraway, rich in essential oils and perfectly dried.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-wheat-awn me-1"></i>99% Clean</span>
+                                <span class="product-card__moq">MOQ: 3 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="legumes">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-4.jpg" alt="White Kidney Beans" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=4" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="4" data-product-name="White Kidney Beans"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Legumes</span>
+                            <h3 class="product-card__title">White Kidney Beans</h3>
+                            <p class="product-card__description">Large size, high protein content, sorted for export excellence.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-circle me-1"></i>Grade A</span>
+                                <span class="product-card__moq">MOQ: 24 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-5.jpg" alt="Golden Sesame Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=5" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="5" data-product-name="Golden Sesame Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Seeds</span>
+                            <h3 class="product-card__title">Golden Sesame Seeds</h3>
+                            <p class="product-card__description">Premium Egyptian sesame, golden color, rich in natural oils.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-sun me-1"></i>Hulled/Natural</span>
+                                <span class="product-card__moq">MOQ: 10 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-6.jpg" alt="Dried Marjoram Leaves" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=6" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="6" data-product-name="Dried Marjoram Leaves"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Herbs</span>
+                            <h3 class="product-card__title">Dried Marjoram Leaves</h3>
+                            <p class="product-card__description">Pure Egyptian marjoram, steam-treated and machine-rubbed.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>Whole/Rubbed</span>
+                                <span class="product-card__moq">MOQ: 1 Ton</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="legumes">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-7.jpg" alt="Egyptian Fava Beans" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=7" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="7" data-product-name="Egyptian Fava Beans"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                            <span class="product-card__badge">Popular</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Legumes</span>
+                            <h3 class="product-card__title">Egyptian Fava Beans</h3>
+                            <p class="product-card__description">Wide beans, size 10-12mm, high quality for wholesale markets.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-circle me-1"></i>Dried/Sorted</span>
+                                <span class="product-card__moq">MOQ: 24 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-8.jpg" alt="Premium Anise Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=8" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="8" data-product-name="Premium Anise Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Seeds</span>
+                            <h3 class="product-card__title">Premium Anise Seeds</h3>
+                            <p class="product-card__description">Superior quality Egyptian anise, highly aromatic and well-dried.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>99% Pure</span>
+                                <span class="product-card__moq">MOQ: 2 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="spices">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-9.jpg" alt="Coriander Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=9" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="9" data-product-name="Coriander Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Spices</span>
+                            <h3 class="product-card__title">Coriander Seeds</h3>
+                            <p class="product-card__description">Whole coriander seeds, light brown color, machine cleaned.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>Split/Whole</span>
+                                <span class="product-card__moq">MOQ: 5 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-10.jpg" alt="Fennel Seeds" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=10" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="10" data-product-name="Fennel Seeds"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Seeds</span>
+                            <h3 class="product-card__title">Fennel Seeds</h3>
+                            <p class="product-card__description">Egyptian fennel seeds, sweet aroma, high essential oil content.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-wheat-awn me-1"></i>Green/Yellow</span>
+                                <span class="product-card__moq">MOQ: 3 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-11.jpg" alt="Chamomile Flowers" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=11" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="11" data-product-name="Chamomile Flowers"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                            <span class="product-card__badge product-card__badge--new">Premium</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Herbs</span>
+                            <h3 class="product-card__title">Chamomile Flowers</h3>
+                            <p class="product-card__description">Whole chamomile flowers, bright yellow centers, aromatic and calming.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>Whole Flowers</span>
+                                <span class="product-card__moq">MOQ: 500 kg</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-12.jpg" alt="Egyptian Hibiscus" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details.html?id=12" class="btn btn-gold btn-sm mb-2">View Details</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="12" data-product-name="Egyptian Hibiscus"><i class="fas fa-plus me-1"></i>Add to RFQ</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Herbs</span>
+                            <h3 class="product-card__title">Egyptian Hibiscus</h3>
+                            <p class="product-card__description">Deep red calyces, whole petals or crushed, rich flavor and color.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>Whole/TBC</span>
+                                <span class="product-card__moq">MOQ: 2 Tons</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="products-pagination animate-on-scroll" aria-label="Products pagination">
+                <ul class="pagination" id="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><i class="fas fa-chevron-left"></i></a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- RFQ Floating Button -->
+    <a href="rfq.html" class="rfq-float" id="rfqFloat" aria-label="View RFQ Cart">
+        <i class="fas fa-file-invoice"></i>
+        <span class="rfq-float__badge" id="rfqBadge">0</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__main">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="footer__brand">
+                            <a href="index.html" class="footer__logo">
+                                <i class="fas fa-globe"></i>
+                                <span>Al Doha</span>
+                            </a>
+                            <p class="footer__about">Leading import and export company delivering premium Egyptian agricultural products across global markets with commitment to quality and sustainability.</p>
+                            <div class="footer__social">
+                                <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h4 class="footer__title">Quick Links</h4>
+                        <ul class="footer__links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="export-markets.html">Export Markets</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h4 class="footer__title">Support</h4>
+                        <ul class="footer__links">
+                            <li><a href="certifications.html">Certifications</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="rfq.html">Request Quote</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="footer__title">Contact Info</h4>
+                        <ul class="footer__contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Business District, Trade Center<br>Cairo, Egypt</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+201234567890">+20 123 456 7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@aldoha-export.com">info@aldoha-export.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer__copyright">&copy; 2026 Al Doha For Import & Export. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="footer__credit">Designed with excellence for global trade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/rfq.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/lang-switcher.js"></script>
+</body>
+</html>

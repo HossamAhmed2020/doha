@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المنتجات | الضحي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="admin-sidebar__brand"><i class="fas fa-leaf"></i><span>إدارة الضحي</span></div>
+            <nav class="admin-sidebar__nav">
+                <div class="admin-sidebar__section">رئيسي</div>
+                <a href="dashboard-ar.html" class="admin-sidebar__item"><i class="fas fa-chart-pie"></i>لوحة التحكم</a>
+                <a href="products-ar.html" class="admin-sidebar__item active"><i class="fas fa-seedling"></i>المنتجات</a>
+                <a href="rfqs-ar.html" class="admin-sidebar__item"><i class="fas fa-file-invoice"></i>طلبات العروض</a>
+                <a href="countries-ar.html" class="admin-sidebar__item"><i class="fas fa-globe-africa"></i>الدول</a>
+                <a href="certifications-ar.html" class="admin-sidebar__item"><i class="fas fa-certificate"></i>الشهادات</a>
+                <div class="admin-sidebar__section">الموقع</div>
+                <a href="../index-ar.html" class="admin-sidebar__item" target="_blank"><i class="fas fa-external-link-alt"></i>عرض الموقع</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <button class="admin-topbar__toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <div class="admin-topbar__user"><div class="admin-topbar__avatar">م</div><span class="admin-topbar__name">المستخدم المسؤول</span></div>
+            </header>
+
+            <div class="admin-content">
+                <div class="admin-card">
+                    <div class="admin-card__header">
+                        <h5 class="admin-card__title">المنتجات</h5>
+                        <div class="d-flex gap-2">
+                            <div class="admin-search">
+                                <i class="fas fa-search admin-search__icon"></i>
+                                <input type="text" class="admin-search__input" placeholder="البحث في المنتجات...">
+                            </div>
+                            <button class="admin-btn admin-btn--primary" data-bs-toggle="modal" data-bs-target="#productModal">
+                                <i class="fas fa-plus ms-1"></i>إضافة منتج
+                            </button>
+                        </div>
+                    </div>
+                    <div class="admin-card__body p-0">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr><th>المنتج</th><th>الفئة</th><th>بلد المنشأ</th><th>الحد الأدنى</th><th>الحالة</th><th>الإجراءات</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="admin-table__product">
+                                                <img src="../assets/images/products/product-1.jpg" alt="">
+                                                <span>أرز مصري طويل الحبة</span>
+                                            </div>
+                                        </td>
+                                        <td>حبوب</td><td>مصر</td><td>25 طن</td>
+                                        <td><span class="badge badge--won">نشط</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline"><i class="fas fa-edit"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="admin-table__product">
+                                                <img src="../assets/images/products/product-2.jpg" alt="">
+                                                <span>ريحان مجفف ممتاز</span>
+                                            </div>
+                                        </td>
+                                        <td>أعشاب وتوابل</td><td>مصر</td><td>5 طن</td>
+                                        <td><span class="badge badge--won">نشط</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline"><i class="fas fa-edit"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="admin-table__product">
+                                                <img src="../assets/images/products/product-3.jpg" alt="">
+                                                <span>بذور دوار الشمس</span>
+                                            </div>
+                                        </td>
+                                        <td>بذور</td><td>مصر</td><td>10 طن</td>
+                                        <td><span class="badge badge--pending">مسودة</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline"><i class="fas fa-edit"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade admin-modal" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">إضافة منتج</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="admin-form-label">اسم المنتج</label>
+                            <input type="text" class="admin-form-control" placeholder="أدخل اسم المنتج">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="admin-form-label">الفئة</label>
+                            <select class="admin-form-select">
+                                <option>حبوب</option>
+                                <option>أعشاب وتوابل</option>
+                                <option>بذور</option>
+                                <option>بقوليات</option>
+                                <option>أخرى</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="admin-form-label">بلد المنشأ</label>
+                            <select class="admin-form-select">
+                                <option>مصر</option>
+                                <option>تركيا</option>
+                                <option>الهند</option>
+                                <option>الصين</option>
+                                <option>ألمانيا</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="admin-form-label">الحد الأدنى للطلب</label>
+                            <input type="text" class="admin-form-control" placeholder="مثال: 25 طن">
+                        </div>
+                        <div class="col-12">
+                            <label class="admin-form-label">الوصف</label>
+                            <textarea class="admin-form-control" rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label class="admin-form-label">صورة المنتج</label>
+                            <input type="file" class="admin-form-control" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="admin-btn admin-btn--outline" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="admin-btn admin-btn--primary">حفظ المنتج</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.getElementById('adminSidebar').classList.toggle('open');
+        });
+    </script>
+    <script src="../assets/js/lang-switcher.js"></script>
+</body>
+</html>

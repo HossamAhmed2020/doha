@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Management | Al Doha Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="admin-sidebar__brand"><i class="fas fa-leaf"></i><span>Al Doha Admin</span></div>
+            <nav class="admin-sidebar__nav">
+                <div class="admin-sidebar__section">Main</div>
+                <a href="dashboard.html" class="admin-sidebar__item"><i class="fas fa-chart-pie"></i>Dashboard</a>
+                <a href="products.html" class="admin-sidebar__item"><i class="fas fa-seedling"></i>Products</a>
+                <a href="rfqs.html" class="admin-sidebar__item active"><i class="fas fa-file-invoice"></i>RFQs</a>
+                <a href="countries.html" class="admin-sidebar__item"><i class="fas fa-globe-africa"></i>Countries</a>
+                <a href="certifications.html" class="admin-sidebar__item"><i class="fas fa-certificate"></i>Certifications</a>
+                <div class="admin-sidebar__section">Website</div>
+                <a href="../index.html" class="admin-sidebar__item" target="_blank"><i class="fas fa-external-link-alt"></i>View Site</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <button class="admin-topbar__toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <div class="admin-topbar__user"><div class="admin-topbar__avatar">AD</div><span class="admin-topbar__name">Admin User</span></div>
+            </header>
+
+            <div class="admin-content">
+                <div class="admin-card">
+                    <div class="admin-card__header">
+                        <h5 class="admin-card__title">RFQ Requests</h5>
+                        <div class="d-flex gap-2">
+                            <div class="admin-search">
+                                <i class="fas fa-search admin-search__icon"></i>
+                                <input type="text" class="admin-search__input" placeholder="Search RFQs...">
+                            </div>
+                            <select class="admin-form-select" style="width: 140px;">
+                                <option>All Status</option>
+                                <option>Pending</option>
+                                <option>Contacted</option>
+                                <option>Won</option>
+                                <option>Lost</option>
+                            </select>
+                            <button class="admin-btn admin-btn--outline" onclick="alert('Export to Excel feature will connect to API')">
+                                <i class="fas fa-file-excel me-1"></i>Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="admin-card__body p-0">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>RFQ ID</th>
+                                        <th>Customer</th>
+                                        <th>Company</th>
+                                        <th>Products</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#RFQ-2026</td>
+                                        <td>Ahmed Hassan</td>
+                                        <td>Global Foods Ltd.</td>
+                                        <td>Egyptian Long Grain Rice (25T)</td>
+                                        <td>Jun 12, 2026</td>
+                                        <td><span class="badge badge--pending">Pending</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2025</td>
+                                        <td>Sarah Miller</td>
+                                        <td>Nature's Best Inc.</td>
+                                        <td>Premium Dried Basil (5T)</td>
+                                        <td>Jun 11, 2026</td>
+                                        <td><span class="badge badge--contacted">Contacted</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2024</td>
+                                        <td>Klaus Weber</td>
+                                        <td>EuroSpices GmbH</td>
+                                        <td>Sun-Dried Chamomile (2T)</td>
+                                        <td>Jun 10, 2026</td>
+                                        <td><span class="badge badge--won">Won</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2023</td>
+                                        <td>Li Wei</td>
+                                        <td>Asia Seeds Co.</td>
+                                        <td>Bulk Caraway Seeds (15T)</td>
+                                        <td>Jun 09, 2026</td>
+                                        <td><span class="badge badge--lost">Lost</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- View RFQ Modal -->
+    <div class="modal fade admin-modal" id="rfqModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">RFQ Details #RFQ-2026</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Customer:</strong> Ahmed Hassan</p>
+                    <p><strong>Company:</strong> Global Foods Ltd.</p>
+                    <p><strong>Email:</strong> ahmed@globalfoods.com</p>
+                    <p><strong>Phone:</strong> +966 50 123 4567</p>
+                    <p><strong>Country:</strong> Saudi Arabia</p>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <p><strong>Products:</strong></p>
+                    <p>Egyptian Long Grain Rice (Qty: 25 Tons)</p>
+                    <p><strong>Incoterm:</strong> CIF</p>
+                    <p><strong>Message:</strong></p>
+                    <p style="color: rgba(255,255,255,0.6);">We need monthly supply of 25 tons to Jeddah port. Please provide best CIF pricing and delivery schedule.</p>
+                </div>
+                <div class="modal-footer">
+                    <select class="admin-form-select" style="width: 150px;">
+                        <option>Pending</option>
+                        <option>Contacted</option>
+                        <option>Won</option>
+                        <option>Lost</option>
+                    </select>
+                    <button type="button" class="admin-btn admin-btn--primary">Update Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.getElementById('adminSidebar').classList.toggle('open');
+        });
+    </script>
+    <script src="../assets/js/lang-switcher.js"></script>
+</body>
+</html>

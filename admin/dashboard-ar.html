@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | الضحي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="admin-sidebar__brand">
+                <i class="fas fa-leaf"></i>
+                <span>إدارة الضحي</span>
+            </div>
+            <nav class="admin-sidebar__nav">
+                <div class="admin-sidebar__section">رئيسي</div>
+                <a href="dashboard-ar.html" class="admin-sidebar__item active"><i class="fas fa-chart-pie"></i>لوحة التحكم</a>
+                <a href="products-ar.html" class="admin-sidebar__item"><i class="fas fa-seedling"></i>المنتجات</a>
+                <a href="rfqs-ar.html" class="admin-sidebar__item"><i class="fas fa-file-invoice"></i>طلبات العروض</a>
+                <a href="countries-ar.html" class="admin-sidebar__item"><i class="fas fa-globe-africa"></i>الدول</a>
+                <a href="certifications-ar.html" class="admin-sidebar__item"><i class="fas fa-certificate"></i>الشهادات</a>
+
+                <div class="admin-sidebar__section">الموقع</div>
+                <a href="../index-ar.html" class="admin-sidebar__item" target="_blank"><i class="fas fa-external-link-alt"></i>عرض الموقع</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <button class="admin-topbar__toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <div class="admin-topbar__user">
+                    <div class="admin-topbar__avatar">م</div>
+                    <span class="admin-topbar__name">المستخدم المسؤول</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <div class="admin-stats">
+                    <div class="admin-stat animate-on-scroll">
+                        <div class="admin-stat__icon admin-stat__icon--green"><i class="fas fa-file-invoice"></i></div>
+                        <div class="admin-stat__info"><h4>142</h4><span>إجمالي طلبات العروض</span></div>
+                    </div>
+                    <div class="admin-stat animate-on-scroll" data-delay="100">
+                        <div class="admin-stat__icon admin-stat__icon--blue"><i class="fas fa-box"></i></div>
+                        <div class="admin-stat__info"><h4>48</h4><span>المنتجات</span></div>
+                    </div>
+                    <div class="admin-stat animate-on-scroll" data-delay="200">
+                        <div class="admin-stat__icon admin-stat__icon--green"><i class="fas fa-check-circle"></i></div>
+                        <div class="admin-stat__info"><h4>89</h4><span>الصفقات المربحة</span></div>
+                    </div>
+                    <div class="admin-stat animate-on-scroll" data-delay="300">
+                        <div class="admin-stat__icon admin-stat__icon--red"><i class="fas fa-clock"></i></div>
+                        <div class="admin-stat__info"><h4>12</h4><span>طلبات معلقة</span></div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-8 animate-on-scroll">
+                        <div class="admin-card">
+                            <div class="admin-card__header">
+                                <h5 class="admin-card__title">اتجاهات طلبات العروض</h5>
+                            </div>
+                            <div class="admin-card__body">
+                                <div class="chart-container">
+                                    <canvas id="rfqChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 animate-on-scroll" data-delay="100">
+                        <div class="admin-card">
+                            <div class="admin-card__header">
+                                <h5 class="admin-card__title">حالة طلبات العروض</h5>
+                            </div>
+                            <div class="admin-card__body">
+                                <div class="chart-container">
+                                    <canvas id="statusChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card mt-4 animate-on-scroll">
+                    <div class="admin-card__header">
+                        <h5 class="admin-card__title">أحدث طلبات العروض</h5>
+                        <a href="rfqs-ar.html" class="admin-btn admin-btn--outline admin-btn--sm">عرض الكل</a>
+                    </div>
+                    <div class="admin-card__body p-0">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>المعرف</th>
+                                        <th>العميل</th>
+                                        <th>المنتج</th>
+                                        <th>التاريخ</th>
+                                        <th>الحالة</th>
+                                        <th>الإجراء</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#RFQ-2026</td>
+                                        <td>الأغذية العالمية المحدودة</td>
+                                        <td>أرز مصري طويل الحبة</td>
+                                        <td>12 يونيو 2026</td>
+                                        <td><span class="badge badge--pending">معلق</span></td>
+                                        <td><a href="rfqs-ar.html" class="admin-btn admin-btn--sm admin-btn--outline">عرض</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2025</td>
+                                        <td>نيتشرز بيست</td>
+                                        <td>بردقوش مجفف ممتاز</td>
+                                        <td>11 يونيو 2026</td>
+                                        <td><span class="badge badge--contacted">تم التواصل</span></td>
+                                        <td><a href="rfqs-ar.html" class="admin-btn admin-btn--sm admin-btn--outline">عرض</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2024</td>
+                                        <td>يوروسبايس GmbH</td>
+                                        <td>بابونج مجفف بالشمس</td>
+                                        <td>10 يونيو 2026</td>
+                                        <td><span class="badge badge--won">تم الفوز</span></td>
+                                        <td><a href="rfqs-ar.html" class="admin-btn admin-btn--sm admin-btn--outline">عرض</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2023</td>
+                                        <td>آسيا للبذور</td>
+                                        <td>بذور كراوية بالجملة</td>
+                                        <td>9 يونيو 2026</td>
+                                        <td><span class="badge badge--lost">تم الخسارة</span></td>
+                                        <td><a href="rfqs-ar.html" class="admin-btn admin-btn--sm admin-btn--outline">عرض</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.getElementById('adminSidebar').classList.toggle('open');
+        });
+
+        new Chart(document.getElementById('rfqChart'), {
+            type: 'line',
+            data: {
+                labels: ['يناير','فبراير','مارس','أبريل','مايو','يونيو'],
+                datasets: [{
+                    label: 'طلبات العروض المستلمة',
+                    data: [18, 25, 22, 30, 28, 35],
+                    borderColor: '#5B7C32',
+                    backgroundColor: 'rgba(91, 124, 50, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.5)' } },
+                    x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)' } }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('statusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['معلق','تم التواصل','تم الفوز','تم الخسارة'],
+                datasets: [{
+                    data: [12, 28, 89, 13],
+                    backgroundColor: ['#fbbf24','#60a5fa','#4ade80','#f87171'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: 'rgba(255,255,255,0.7)', padding: 20 } }
+                }
+            }
+        });
+    </script>
+    <script src="../assets/js/lang-switcher.js"></script>
+</body>
+</html>

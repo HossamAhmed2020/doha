@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حصادنا الزراعي | الضحي للاستيراد والتصدير</title>
+    <meta name="description" content="تصفح كتالوجنا من الصادرات الزراعية المصرية المتميزة - أعشاب، توابل، بذور، وبقوليات. جودة مضمونة ومصدرها مستدام.">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index-ar.html">
+                <span class="navbar-brand__icon">
+                    <i class="fas fa-leaf"></i>
+                </span>
+                <div class="navbar-brand__text">
+                    <span class="navbar-brand__title">الضحي</span>
+                    <span class="navbar-brand__subtitle">للاستيراد والتصدير</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-ar.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-ar.html">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products-ar.html">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="export-markets-ar.html">الأسواق التصديرية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certifications-ar.html">الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-ar.html">تواصل معنا</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="rfq-ar.html" class="btn btn-gold btn-sm">
+                            <i class="fas fa-file-invoice me-2"></i>طلب عرض سعر
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header__overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index-ar.html">الرئيسية</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">المنتجات</li>
+                        </ol>
+                    </nav>
+                    <h1 class="page-header__title">حصاد زراعي <span class="text-gold">فاخر</span></h1>
+                    <p class="page-header__text">استكشف مجموعتنا المختارة من أجود الأعشاب والتوابل والبذور والبقوليات المصرية، والمعالجة بدقة لتلائم معايير الجودة العالمية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section section--light products-section" id="products">
+        <div class="container">
+            <!-- Filters Toolbar -->
+            <div class="products-toolbar animate-on-scroll">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-4">
+                        <div class="search-box">
+                            <i class="fas fa-search search-box__icon"></i>
+                            <input type="text" class="search-box__input" id="productSearch" placeholder="البحث في المنتجات (مثل: ريحان، كمون...)" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="filters-wrapper">
+                            <div class="filter-group">
+                                <label class="filter-group__label">الفئة</label>
+                                <select class="filter-group__select" id="categoryFilter">
+                                    <option value="">جميع الفئات</option>
+                                    <option value="herbs">أعشاب</option>
+                                    <option value="spices">توابل</option>
+                                    <option value="seeds">بذور</option>
+                                    <option value="legumes">بقوليات</option>
+                                    <option value="grains">حبوب</option>
+                                    <option value="oils">زيوت طبيعية</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-group__label">ترتيب حسب</label>
+                                <select class="filter-group__select" id="sortFilter">
+                                    <option value="featured">المميز</option>
+                                    <option value="newest">أحدث حصاد</option>
+                                    <option value="name-asc">الاسم أ-ي</option>
+                                    <option value="name-desc">الاسم ي-أ</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-outline-gold btn-sm" id="clearFilters"><i class="fas fa-times me-1"></i>مسح</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-toolbar__results"><span id="resultsCount">عرض 12 منتج فاخر</span></div>
+            </div>
+
+            <div class="row g-4" id="productsGrid">
+                <!-- Product 1 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-1.jpg" alt="ريحان مصري فاخر" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=1" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="1" data-product-name="ريحان مصري فاخر"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                            <span class="product-card__badge">عطري</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">أعشاب</span>
+                            <h3 class="product-card__title">ريحان مصري فاخر</h3>
+                            <p class="product-card__description">أوراق ريحان مجففة ذات محتوى زيت عالٍ ولون أخضر زاهٍ ورائحة نفاذة.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>مطحون / كامل</span>
+                                <span class="product-card__moq">أقل كمية: 1 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="spices">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-2.jpg" alt="بذور كمون فاخرة" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=2" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="2" data-product-name="بذور كمون فاخرة"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">توابل</span>
+                            <h3 class="product-card__title">بذور كمون فاخرة</h3>
+                            <p class="product-card__description">كمون مصري، نقاء 99%، مجفف شمسياً ومنظف آلياً بأعلى جودة.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>نقاء عالٍ</span>
+                                <span class="product-card__moq">أقل كمية: 5 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-3.jpg" alt="بذور كراوية فاخرة" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=3" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="3" data-product-name="بذور كراوية فاخرة"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                            <span class="product-card__badge product-card__badge--new">حصاد جديد</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بذور</span>
+                            <h3 class="product-card__title">بذور كراوية فاخرة</h3>
+                            <p class="product-card__description">أجود أنواع الكراوية المصرية، غنية بالزيوت الأساسية ومجففة بمثالية.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-wheat-awn me-1"></i>نظافة 99%</span>
+                                <span class="product-card__moq">أقل كمية: 3 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="legumes">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-4.jpg" alt="فاصوليا بيضاء" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=4" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="4" data-product-name="فاصوليا بيضاء"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بقوليات</span>
+                            <h3 class="product-card__title">فاصوليا بيضاء</h3>
+                            <p class="product-card__description">حبة كبيرة، محتوى بروتين عالٍ، مفروزة لتميز التصدير العالمي.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-circle me-1"></i>درجة أولى</span>
+                                <span class="product-card__moq">أقل كمية: 24 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-5.jpg" alt="بذور سمسم ذهبي" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=5" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="5" data-product-name="بذور سمسم ذهبي"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بذور</span>
+                            <h3 class="product-card__title">بذور سمسم ذهبي</h3>
+                            <p class="product-card__description">سمسم مصري فاخر، لون ذهبي، غني بالزيوت الطبيعية والمذاق الرائع.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-sun me-1"></i>مقشور / طبيعي</span>
+                                <span class="product-card__moq">أقل كمية: 10 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-6.jpg" alt="أوراق بردقوش مجففة" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=6" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="6" data-product-name="أوراق بردقوش مجففة"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">أعشاب</span>
+                            <h3 class="product-card__title">أوراق بردقوش مجففة</h3>
+                            <p class="product-card__description">بردقوش مصري نقي، معالج بالبخار ومفرك آلياً بجودة عالية.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>كامل / مفرك</span>
+                                <span class="product-card__moq">أقل كمية: 1 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="legumes">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-7.jpg" alt="فول مدمس مصري" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=7" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="7" data-product-name="فول مدمس مصري"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                            <span class="product-card__badge">شائع</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بقوليات</span>
+                            <h3 class="product-card__title">فول مدمس مصري</h3>
+                            <p class="product-card__description">فول عريض، مقاس 10-12 مم، جودة عالية لأسواق الجملة الدولية.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-circle me-1"></i>مجفف / مفروز</span>
+                                <span class="product-card__moq">أقل كمية: 24 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-8.jpg" alt="بذور يانسون فاخرة" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=8" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="8" data-product-name="بذور يانسون فاخرة"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بذور</span>
+                            <h3 class="product-card__title">بذور يانسون فاخرة</h3>
+                            <p class="product-card__description">يانسون مصري فائق الجودة، عطري للغاية ومجفف بشكل جيد.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>نقاء 99%</span>
+                                <span class="product-card__moq">أقل كمية: 2 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="spices">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-9.jpg" alt="بذور كزبرة" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=9" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="9" data-product-name="بذور كزبرة"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">توابل</span>
+                            <h3 class="product-card__title">بذور كزبرة</h3>
+                            <p class="product-card__description">بذور كزبرة كاملة، لون بني فاتح، منظفة آلياً بجودة ممتازة.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-seedling me-1"></i>كاملة / منقسمة</span>
+                                <span class="product-card__moq">أقل كمية: 5 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="seeds">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-10.jpg" alt="بذور شمر" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=10" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="10" data-product-name="بذور شمر"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">بذور</span>
+                            <h3 class="product-card__title">بذور شمر</h3>
+                            <p class="product-card__description">بذور شمر مصرية، رائحة حلوة، محتوى زيت أساسي عالٍ.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-wheat-awn me-1"></i>أخضر / أصفر</span>
+                                <span class="product-card__moq">أقل كمية: 3 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-11.jpg" alt="أزهار البابونج" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=11" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="11" data-product-name="أزهار البابونج"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                            <span class="product-card__badge product-card__badge--new">ممتاز</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">أعشاب</span>
+                            <h3 class="product-card__title">أزهار البابونج</h3>
+                            <p class="product-card__description">أزهار بابونج كاملة، مراكز صفراء زاهية، عطرية ومهدئة.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>أزهار كاملة</span>
+                                <span class="product-card__moq">أقل كمية: 500 كجم</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="col-sm-6 col-lg-3 product-item" data-category="herbs">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="assets/images/products/product-12.jpg" alt="كركديه مصري" class="product-card__image" loading="lazy">
+                            <div class="product-card__overlay">
+                                <a href="product-details-ar.html?id=12" class="btn btn-gold btn-sm mb-2">عرض التفاصيل</a>
+                                <button class="btn btn-outline-light btn-sm add-to-rfq" data-product-id="12" data-product-name="كركديه مصري"><i class="fas fa-plus me-1"></i>أضف لطلب السعر</button>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">أعشاب</span>
+                            <h3 class="product-card__title">كركديه مصري</h3>
+                            <p class="product-card__description">أوراق كركديه حمراء داكنة، بتلات كاملة أو مجروشة، نكهة ولون غني.</p>
+                            <div class="product-card__meta">
+                                <span class="product-card__origin"><i class="fas fa-leaf me-1"></i>كامل / مجروش</span>
+                                <span class="product-card__moq">أقل كمية: 2 طن</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <nav class="products-pagination animate-on-scroll" aria-label="تصفح المنتجات">
+                <ul class="pagination" id="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="السابق">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="التالي">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <a href="rfq-ar.html" class="rfq-float" id="rfqFloat" aria-label="عرض سلة طلب العرض">
+        <i class="fas fa-file-invoice"></i>
+        <span class="rfq-float__badge" id="rfqBadge">0</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__main">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="footer__brand">
+                            <a href="index-ar.html" class="footer__logo">
+                                <i class="fas fa-leaf"></i>
+                                <span>الضحي</span>
+                            </a>
+                            <p class="footer__about">شركة رائدة في تصدير الحاصلات الزراعية المصرية، نلتزم بتقديم أجود الأعشاب والتوابل والبذور للأسواق العالمية مع التركيز على الجودة والاستدامة.</p>
+                            <div class="footer__social">
+                                <a href="#" class="footer__social-link" aria-label="لينكدإن"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="تويتر"><i class="fab fa-x-twitter"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="footer__social-link" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h4 class="footer__title">روابط سريعة</h4>
+                        <ul class="footer__links">
+                            <li><a href="index-ar.html">الرئيسية</a></li>
+                            <li><a href="about-ar.html">من نحن</a></li>
+                            <li><a href="products-ar.html">المنتجات</a></li>
+                            <li><a href="export-markets-ar.html">الأسواق التصديرية</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h4 class="footer__title">الدعم</h4>
+                        <ul class="footer__links">
+                            <li><a href="certifications-ar.html">الشهادات</a></li>
+                            <li><a href="contact-ar.html">تواصل معنا</a></li>
+                            <li><a href="rfq-ar.html">طلب عرض سعر</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="footer__title">معلومات التواصل</h4>
+                        <ul class="footer__contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 حي الأعمال، مركز التجارة<br>القاهرة، مصر</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+201234567890">+20 123 456 7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@aldoha-export.com">info@aldoha-export.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer__copyright">&copy; 2026 الضحي للاستيراد والتصدير. جميع الحقوق محفوظة.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="footer__credit">تميز في التصدير الزراعي المصري</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/lang-switcher.js"></script>
+</body>
+</html>

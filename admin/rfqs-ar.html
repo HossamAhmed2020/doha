@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة طلبات العروض | الضحي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="admin-sidebar__brand"><i class="fas fa-globe"></i><span>إدارة الضحي</span></div>
+            <nav class="admin-sidebar__nav">
+                <div class="admin-sidebar__section">رئيسي</div>
+                <a href="dashboard-ar.html" class="admin-sidebar__item"><i class="fas fa-chart-pie"></i>لوحة التحكم</a>
+                <a href="products-ar.html" class="admin-sidebar__item"><i class="fas fa-box"></i>المنتجات</a>
+                <a href="rfqs-ar.html" class="admin-sidebar__item active"><i class="fas fa-file-invoice"></i>طلبات العروض</a>
+                <a href="countries-ar.html" class="admin-sidebar__item"><i class="fas fa-globe"></i>الدول</a>
+                <a href="certifications-ar.html" class="admin-sidebar__item"><i class="fas fa-certificate"></i>الشهادات</a>
+                <div class="admin-sidebar__section">الموقع</div>
+                <a href="../index-ar.html" class="admin-sidebar__item" target="_blank"><i class="fas fa-external-link-alt"></i>عرض الموقع</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <button class="admin-topbar__toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <div class="admin-topbar__user"><div class="admin-topbar__avatar">م</div><span class="admin-topbar__name">المستخدم المسؤول</span></div>
+            </header>
+
+            <div class="admin-content">
+                <div class="admin-card">
+                    <div class="admin-card__header">
+                        <h5 class="admin-card__title">طلبات العروض</h5>
+                        <div class="d-flex gap-2">
+                            <div class="admin-search">
+                                <i class="fas fa-search admin-search__icon"></i>
+                                <input type="text" class="admin-search__input" placeholder="البحث في الطلبات...">
+                            </div>
+                            <select class="admin-form-select" style="width: 140px;">
+                                <option>جميع الحالات</option>
+                                <option>معلق</option>
+                                <option>تم التواصل</option>
+                                <option>تم الفوز</option>
+                                <option>تم الخسارة</option>
+                            </select>
+                            <button class="admin-btn admin-btn--outline" onclick="alert('سيتم ربط التصدير إلى Excel بالـ API')">
+                                <i class="fas fa-file-excel me-1"></i>تصدير
+                            </button>
+                        </div>
+                    </div>
+                    <div class="admin-card__body p-0">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>معرف الطلب</th>
+                                        <th>العميل</th>
+                                        <th>الشركة</th>
+                                        <th>المنتجات</th>
+                                        <th>التاريخ</th>
+                                        <th>الحالة</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#RFQ-2026</td>
+                                        <td>أحمد حسن</td>
+                                        <td>الأغذية العالمية المحدودة</td>
+                                        <td>أرز مصري طويل الحبة (25 طن)</td>
+                                        <td>12 يونيو 2026</td>
+                                        <td><span class="badge badge--pending">معلق</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2025</td>
+                                        <td>سارة ميلر</td>
+                                        <td>بناء صحيح</td>
+                                        <td>أسمنت بورتلاند (100 طن)</td>
+                                        <td>11 يونيو 2026</td>
+                                        <td><span class="badge badge--contacted">تم التواصل</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2024</td>
+                                        <td>كلاوس فيبر</td>
+                                        <td>كيمتريد GmbH</td>
+                                        <td>رقائق صودا كاوية (20 طن)</td>
+                                        <td>10 يونيو 2026</td>
+                                        <td><span class="badge badge--won">تم الفوز</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#RFQ-2023</td>
+                                        <td>لي وي</td>
+                                        <td>آسيا للمنسوجات</td>
+                                        <td>قماش بوليستر قطن (5000م)</td>
+                                        <td>9 يونيو 2026</td>
+                                        <td><span class="badge badge--lost">تم الخسارة</span></td>
+                                        <td>
+                                            <button class="admin-btn admin-btn--sm admin-btn--outline" data-bs-toggle="modal" data-bs-target="#rfqModal"><i class="fas fa-eye"></i></button>
+                                            <button class="admin-btn admin-btn--sm admin-btn--primary"><i class="fas fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade admin-modal" id="rfqModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تفاصيل طلب العرض #RFQ-2026</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>العميل:</strong> أحمد حسن</p>
+                    <p><strong>الشركة:</strong> الأغذية العالمية المحدودة</p>
+                    <p><strong>البريد الإلكتروني:</strong> ahmed@globalfoods.com</p>
+                    <p><strong>الهاتف:</strong> +966 50 123 4567</p>
+                    <p><strong>الدولة:</strong> السعودية</p>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <p><strong>المنتجات:</strong></p>
+                    <p>أرز مصري طويل الحبة (الكمية: 25 طن)</p>
+                    <p><strong>شروط التجارة:</strong> CIF</p>
+                    <p><strong>الرسالة:</strong></p>
+                    <p style="color: rgba(255,255,255,0.6);">نحتاج إمداداً شهرياً بـ 25 طناً إلى ميناء جدة. الرجاء تقديم أفضل سعر CIF وجدول التسليم.</p>
+                </div>
+                <div class="modal-footer">
+                    <select class="admin-form-select" style="width: 150px;">
+                        <option>معلق</option>
+                        <option>تم التواصل</option>
+                        <option>تم الفوز</option>
+                        <option>تم الخسارة</option>
+                    </select>
+                    <button type="button" class="admin-btn admin-btn--primary">تحديث الحالة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.getElementById('adminSidebar').classList.toggle('open');
+        });
+    </script>
+    <script src="../assets/js/lang-switcher.js"></script>
+</body>
+</html>
