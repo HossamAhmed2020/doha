@@ -8,34 +8,61 @@
 
     document.documentElement.lang = currentLang;
 
-    try { localStorage.setItem('aldoha_lang', currentLang); } catch (e) {}
-
-    const storedLang = (function() {
+    function getSavedLang() {
         try { return localStorage.getItem('aldoha_lang'); } catch (e) { return null; }
-    })();
+    }
 
-    if (storedLang && storedLang !== currentLang) {
-        const isInSubdir = /\/admin\//.test(currentPath);
-        let targetFile;
-        if (storedLang === 'ar') {
-            targetFile = currentFile.replace('.html', '-ar.html');
-        } else {
-            targetFile = currentFile.replace('-ar.html', '.html');
+    function saveLang(lang) {
+        try { localStorage.setItem('aldoha_lang', lang); } catch (e) {}
+    }
+
+    function detectBrowserLang() {
+        try {
+            const langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+            for (const lang of langs) {
+                if (typeof lang === 'string' && lang.split('-')[0] === 'ar') return 'ar';
+            }
+        } catch (e) {}
+        return 'en';
+    }
+
+    function redirectTo(href) {
+        if (!sessionStorage.getItem('aldoha_redirecting')) {
+            sessionStorage.setItem('aldoha_redirecting', 'true');
+            window.location.replace(href);
+            return true;
         }
-        if (targetFile !== currentFile) {
-            const href = isInSubdir ? '../' + targetFile : targetFile;
-            if (!sessionStorage.getItem('aldoha_redirecting')) {
-                sessionStorage.setItem('aldoha_redirecting', 'true');
-                window.location.replace(href);
-                return;
+        return false;
+    }
+
+    const isInSubdir = /\/admin\//.test(currentPath);
+    const storedLang = getSavedLang();
+
+    if (storedLang) {
+        if (storedLang !== currentLang) {
+            let targetFile;
+            if (storedLang === 'ar') {
+                targetFile = currentFile.replace('.html', '-ar.html');
+            } else {
+                targetFile = currentFile.replace('-ar.html', '.html');
+            }
+            if (targetFile !== currentFile) {
+                if (redirectTo(targetFile)) return;
             }
         }
+    } else {
+        const detectedLang = detectBrowserLang();
+        if (detectedLang !== currentLang) {
+            const targetFile = detectedLang === 'ar' ? 'index-ar.html' : 'index.html';
+            const targetHref = isInSubdir ? '../' + targetFile : targetFile;
+            if (redirectTo(targetHref)) return;
+        }
+        saveLang(detectedLang);
     }
     sessionStorage.removeItem('aldoha_redirecting');
 
     function init() {
         const isArabic = currentFile.includes('-ar.html');
-        const isInSubdir = /\/admin\//.test(currentPath);
 
         let targetFile;
         if (isArabic) {
@@ -44,14 +71,11 @@
             targetFile = currentFile.replace('.html', '-ar.html');
         }
 
-        const fullTarget = isInSubdir ? '../' + targetFile : targetFile;
         const label = isArabic ? 'EN' : 'AR';
         const title = isArabic ? 'Switch to English' : 'التبديل إلى العربية';
 
         const nav = document.querySelector('.navbar-nav');
-        if (!nav) {
-            return;
-        }
+        if (!nav) return;
 
         const existing = nav.querySelector('.lang-toggle-item');
         if (existing) existing.remove();
@@ -67,14 +91,17 @@
             li.style.marginRight = '0';
         }
 
-        li.innerHTML = `
-            <a href="${fullTarget}"
-               class="btn btn-outline-gold btn-sm lang-toggle"
-               title="${title}"
-               style="font-weight:700; min-width:48px; text-align:center; border-width:2px; padding:0.5rem 1rem;">
-                ${label}
-            </a>
-        `;
+        const a = document.createElement('a');
+        a.href = targetFile;
+        a.className = 'btn btn-outline-gold btn-sm lang-toggle';
+        a.title = title;
+        a.style.cssText = 'font-weight:700; min-width:48px; text-align:center; border-width:2px; padding:0.5rem 1rem;';
+        a.textContent = label;
+        a.addEventListener('click', function() {
+            saveLang(isArabic ? 'en' : 'ar');
+        });
+
+        li.appendChild(a);
 
         const rfqBtn = nav.querySelector('a[href*="rfq"]')?.closest('li');
         if (rfqBtn) {
