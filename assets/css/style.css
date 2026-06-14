@@ -353,6 +353,22 @@ ul, ol {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2891, 124, 50, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Request Quote in navbar — match other nav-link styling */
+.navbar .btn-gold,
+.navbar .btn-gold:link,
+.navbar .btn-gold:visited,
+.navbar .btn-gold:hover,
+.navbar .btn-gold:active,
+.navbar .btn-gold:focus {
+    color: #fff !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 /* ============================================
    SECTIONS
    ============================================ */

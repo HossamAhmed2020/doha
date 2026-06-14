@@ -144,40 +144,57 @@
         const form = document.getElementById('rfqForm');
         if (!form) return;
 
+        const WHATSAPP_NUMBER = "+201010952339";
+        const isArabic = document.documentElement.lang === 'ar';
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             e.stopPropagation();
 
-            if (!form.checkValidity()) {
-                form.classList.add('was-validated');
-                return;
-            }
+            form.classList.add('was-validated');
+            if (!form.checkValidity()) return;
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            data.products = RFQCart.getItems();
+            const getVal = (id) => (document.getElementById(id)?.value || '').trim();
+            const getSelectText = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.options[el.selectedIndex]?.text || '' : '';
+            };
 
-            // Simulate API submission
+            const fullName = getVal('fullName');
+            const companyName = getVal('companyName');
+            const email = getVal('email');
+            const phone = getVal('phone');
+            const countryText = getSelectText('country');
+            const incoterm = document.getElementById('incoterm');
+            const incotermText = incoterm?.value ? getSelectText('incoterm') : '';
+            const products = getVal('products');
+            const message = getVal('message');
+
+            const notSpecified = isArabic ? 'غير محدد' : 'Not specified';
+            const productsDisplay = products || notSpecified;
+            const incotermDisplay = incoterm?.value ? incotermText : notSpecified;
+
+            const template = isArabic
+                ? `🌿 طلب تصدير جديد\n👤 الاسم الكامل: ${fullName}\n🏢 اسم الشركة: ${companyName}\n📧 البريد الإلكتروني: ${email}\n📞 رقم الهاتف: ${phone}\n🌍 الدولة المستهدفة: ${countryText}\n🚢 شرط التجارة: ${incotermDisplay}\n📦 المنتجات المطلوبة: ${productsDisplay}\n📝 المتطلبات: ${message}\n✅ تمت الموافقة على سياسة الخصوصية\n\n---## مرسل من موقع شركة الدوحة للتصدير`
+                : `🌿 NEW EXPORT RFQ REQUEST\n👤 Full Name: ${fullName}\n🏢 Company: ${companyName}\n📧 Email: ${email}\n📞 Phone: ${phone}\n🌍 Target Market: ${countryText}\n🚢 Preferred Incoterm: ${incotermDisplay}\n📦 Selected Harvest Items: ${productsDisplay}\n📝 Detailed Requirements: ${message}\n✅ Privacy Accepted: Yes\n\n---## Sent from Al Doha Export Website`;
+
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+            const originalHTML = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.innerHTML = isArabic
+                ? '<i class="fas fa-spinner fa-spin me-2"></i>\u062C\u0627\u0631\u064A \u0641\u062A\u062D \u0648\u0627\u062A\u0633\u0627\u0628...'
+                : '<i class="fas fa-spinner fa-spin me-2"></i>Opening WhatsApp...';
+
+            const encoded = encodeURIComponent(template);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
 
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>RFQ Submitted!';
-                submitBtn.classList.remove('btn-gold');
-                submitBtn.classList.add('btn-success');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+                form.classList.remove('was-validated');
                 RFQCart.clear();
                 form.reset();
-                form.classList.remove('was-validated');
-
-                setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.classList.add('btn-gold');
-                    submitBtn.classList.remove('btn-success');
-                }, 3000);
-            }, 1500);
+            }, 4000);
         });
     }
 
