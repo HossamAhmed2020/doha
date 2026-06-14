@@ -9,6 +9,8 @@
     // DOM Elements
     const navbar = document.getElementById('mainNavbar');
     const backToTop = document.getElementById('backToTop');
+    const floatingWhatsapp = document.getElementById('floatingWhatsapp');
+    const WHATSAPP_NUMBER = '201010952339';
     
     // ==========================================
     // Navbar Scroll Effect
@@ -30,6 +32,44 @@
         } else {
             backToTop.classList.remove('visible');
         }
+    }
+
+    // ==========================================
+    // WhatsApp CTA Visibility
+    // ==========================================
+    function handleWhatsappVisibility() {
+        if (window.scrollY > 500) {
+            floatingWhatsapp.classList.add('visible');
+        } else {
+            floatingWhatsapp.classList.remove('visible');
+        }
+    }
+
+    // ==========================================
+    // WhatsApp CTA Dynamic Link
+    // ==========================================
+    function updateWhatsAppLink() {
+        if (!floatingWhatsapp) return;
+
+        const isArabic = document.documentElement.lang === 'ar';
+        const isProductPage = window.location.pathname.indexOf('product-details') !== -1;
+
+        let message;
+
+        if (isProductPage) {
+            const titleEl = document.querySelector('.product-info__title');
+            const productName = titleEl ? titleEl.textContent.trim() : '';
+
+            if (isArabic) {
+                message = '\u0623\u0631\u064A\u062F \u0623\u0646 \u0623\u0633\u062A\u0641\u0633\u0631 \u0639\u0646:\n' + productName + '\n\u0631\u0627\u0628\u0637 \u0627\u0644\u0635\u0641\u062D\u0629:\n' + window.location.href;
+            } else {
+                message = 'I would like to inquire about:\n' + productName + '\nPage URL:\n' + window.location.href;
+            }
+        } else {
+            message = isArabic ? '\u0623\u0631\u064A\u062F \u0623\u0646 \u0623\u0633\u062A\u0641\u0633\u0631 \u0639\u0646' : 'I would like to inquire about';
+        }
+
+        floatingWhatsapp.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
     }
     
     // ==========================================
@@ -154,14 +194,17 @@
         window.addEventListener('scroll', throttle(() => {
             handleNavbarScroll();
             handleBackToTop();
+            handleWhatsappVisibility();
             setActiveNavLink();
         }, 100));
         
         // Initial calls
         handleNavbarScroll();
         handleBackToTop();
+        handleWhatsappVisibility();
         initSmoothScroll();
         animateCounters();
+        updateWhatsAppLink();
         
         // Back to top click
         if (backToTop) {

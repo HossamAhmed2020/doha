@@ -1127,6 +1127,48 @@ ul, ol {
     color: var(--color-text-light);
 }
 
+/* ============================================
+   FLOATING WHATSAPP CTA
+   ============================================ */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    color: #fff;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-base);
+    z-index: 1015;
+}
+
+.floating-whatsapp.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.floating-whatsapp:hover {
+    background: #20BD5C;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3);
+    color: #fff;
+}
+
+.floating-whatsapp:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
 
 /* ============================================
    EXTENDED STYLES — Products, RFQ, Contact, Admin

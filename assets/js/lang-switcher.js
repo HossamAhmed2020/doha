@@ -138,12 +138,12 @@
         const li = document.createElement('li');
         li.className = 'nav-item lang-toggle-item';
 
-        // RTL-aware margin
+        // RTL-aware margin (space between RFQ button and toggle)
         if (isArabic) {
             li.style.marginLeft = '0';
-            li.style.marginRight = '0.75rem';
+            li.style.marginRight = '0.5rem';
         } else {
-            li.style.marginLeft = '0.75rem';
+            li.style.marginLeft = '0.5rem';
             li.style.marginRight = '0';
         }
 
@@ -162,10 +162,10 @@
 
         li.appendChild(a);
 
-        // Insert before the RFQ button for consistent navbar layout
+        // Insert after the RFQ button so order is: [Nav Links] [RFQ] [EN/AR]
         const rfqBtn = nav.querySelector('a[href*="rfq"]')?.closest('li');
         if (rfqBtn) {
-            rfqBtn.before(li);
+            rfqBtn.after(li);
         } else {
             nav.appendChild(li);
         }

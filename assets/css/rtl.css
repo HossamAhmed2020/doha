@@ -122,6 +122,11 @@
     right: auto;
     left: 2rem;
 }
+
+[dir="rtl"] .floating-whatsapp {
+    left: auto;
+    right: 2rem;
+}
 [dir="rtl"] .rfq-float {
     right: auto;
     left: 2rem;
