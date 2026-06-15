@@ -10,7 +10,7 @@
     // Intersection Observer for Scroll Animations
     // ==========================================
     function initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const animatedElements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
         
         if (animatedElements.length === 0) return;
         
@@ -33,6 +33,9 @@
             observer.observe(element);
         });
     }
+
+    // Expose for dynamic content
+    window.refreshAnimations = initScrollAnimations;
     
     // ==========================================
     // Parallax Effect for Hero
