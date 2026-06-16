@@ -102,7 +102,7 @@
             const detailsUrl = isAr ? `product-details-ar.html?id=${product.id}` : `product-details.html?id=${product.id}`;
             const viewDetailsText = isAr ? 'عرض التفاصيل' : 'View Details';
             const addToRFQText = isAr ? 'أضف لطلب السعر' : 'Add to RFQ';
-            const specs = product.en?.specs || {};
+            const specs = data.specs || {};
             const moqText = isAr ? `أقل كمية: ${specs.MOQ || '1 طن'}` : `MOQ: ${specs.MOQ || '1 Ton'}`;
             const formText = (data.specs?.Form || data.specs?.['الشكل'] || '');
 

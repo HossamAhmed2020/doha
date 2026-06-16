@@ -87,6 +87,12 @@
      * ------------------------------------------------------------------ */
     const savedLang = getSavedLang();
 
+    // Override html lang with saved preference so rendering reads the correct language
+    // even before redirect completes (critical since lang-switcher.js now loads first)
+    if (savedLang) {
+        document.documentElement.lang = savedLang;
+    }
+
     if (savedLang) {
         /* ----- Returning visitor: honour saved preference ----- */
         if (savedLang !== currentLang) {
@@ -99,13 +105,17 @@
             }
         }
     } else {
-        /* ----- First visit: detect browser language & redirect landing page ----- */
+        /* ----- First visit: detect browser language & redirect to matching page ----- */
         const detectedLang = detectBrowserLang();
         saveLang(detectedLang);
 
         if (detectedLang !== currentLang) {
-            const targetFile = detectedLang === 'ar' ? 'index-ar.html' : 'index.html';
-            if (redirectTo(targetFile)) return;
+            const targetFile = detectedLang === 'ar'
+                ? currentFile.replace('.html', '-ar.html')
+                : currentFile.replace('-ar.html', '.html');
+            if (targetFile !== currentFile) {
+                if (redirectTo(targetFile)) return;
+            }
         }
     }
 
