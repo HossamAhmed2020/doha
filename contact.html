@@ -142,41 +142,42 @@
                             <div class="row g-4">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Full Name <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" required placeholder="Your name">
+                                        <label class="form-label" for="fullName">Full Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" required placeholder="Your name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" required placeholder="your@email.com">
+                                        <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" required placeholder="your@email.com">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Phone</label>
-                                        <input type="tel" class="form-control" placeholder="+20 101 095 2339">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+20 101 095 2339">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Inquiry Type</label>
-                                        <select class="form-control">
-                                            <option>General Inquiry</option>
-                                            <option>Product Sourcing</option>
-                                            <option>Export Quotation</option>
-                                            <option>Distribution Partnership</option>
+                                        <label class="form-label" for="inquiryType">Inquiry Type</label>
+                                        <select class="form-control" id="inquiryType" name="inquiryType">
+                                            <option value="">Select inquiry type...</option>
+                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Product Sourcing">Product Sourcing</option>
+                                            <option value="Export Quotation">Export Quotation</option>
+                                            <option value="Distribution Partnership">Distribution Partnership</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="form-label">Message <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="5" required placeholder="Tell us about your requirements..."></textarea>
+                                        <label class="form-label" for="message">Message <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell us about your requirements..."></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-gold btn-lg">
+                                    <button type="submit" class="btn btn-gold btn-lg" id="contactSubmitBtn">
                                         <i class="fas fa-paper-plane me-2"></i>Send Message
                                     </button>
                                 </div>

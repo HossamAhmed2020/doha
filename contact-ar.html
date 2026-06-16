@@ -109,41 +109,42 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">الاسم الكامل <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" required placeholder="اسمك">
+                                        <label class="form-label" for="fullName">الاسم الكامل <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" required placeholder="اسمك">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" required placeholder="بريدك@email.com">
+                                        <label class="form-label" for="email">البريد الإلكتروني <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" required placeholder="بريدك@email.com">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">الهاتف</label>
-                                        <input type="tel" class="form-control" placeholder="+1 234 567 890">
+                                        <label class="form-label" for="phone">الهاتف</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+1 234 567 890">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">الموضوع</label>
-                                        <select class="form-control">
-                                            <option>استفسار عام</option>
-                                            <option>معلومات المنتج</option>
-                                            <option>شراكة</option>
-                                            <option>دعم</option>
+                                        <label class="form-label" for="inquiryType">الموضوع</label>
+                                        <select class="form-control" id="inquiryType" name="inquiryType">
+                                            <option value="">اختر نوع الاستفسار...</option>
+                                            <option value="استفسار عام">استفسار عام</option>
+                                            <option value="معلومات المنتج">معلومات المنتج</option>
+                                            <option value="شراكة">شراكة</option>
+                                            <option value="دعم">دعم</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="form-label">الرسالة <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="5" required placeholder="كيف يمكننا مساعدتك؟"></textarea>
+                                        <label class="form-label" for="message">الرسالة <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required placeholder="كيف يمكننا مساعدتك؟"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-gold btn-lg">
+                                    <button type="submit" class="btn btn-gold btn-lg" id="contactSubmitBtn">
                                         <i class="fas fa-paper-plane me-2"></i>إرسال الرسالة
                                     </button>
                                 </div>

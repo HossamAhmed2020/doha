@@ -165,9 +165,15 @@
             'font-weight:700; min-width:48px; text-align:center; border-width:2px; padding:0.5rem 1rem;';
         a.textContent = label;
 
-        // Save preference so auto-redirects follow the manual switch
-        a.addEventListener('click', function () {
-            saveLang(isArabic ? 'en' : 'ar');
+        // Save preference and navigate
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            const newLang = isArabic ? 'en' : 'ar';
+            saveLang(newLang);
+            
+            // Small delay to ensure localStorage is committed in some browsers
+            // and provides a smoother transition
+            window.location.href = targetFile;
         });
 
         li.appendChild(a);
